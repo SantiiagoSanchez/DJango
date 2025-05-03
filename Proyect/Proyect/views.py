@@ -1,13 +1,34 @@
 from django.http import HttpRequest, HttpResponse
 import datetime
+from django.template import Template, Context
 
 def saludo(request):
     
-    return HttpResponse("Hola mundo, primer pagina con DJango.")
+    doc_externo = open("C:/Users/Sanch/OneDrive/Escritorio/DJango/Proyect/Proyect/Plantillas/saludo.html")
+
+    plt = Template(doc_externo.read())
+
+    doc_externo.close()
+
+    context = Context()
+
+    documento = plt.render(context)
+
+    return HttpResponse(documento)
 
 def despedida(request):
 
-    return HttpResponse("Nos vemos, Despedida en DJango.")
+    doc_externo = open("C:/Users/Sanch/OneDrive/Escritorio/DJango/Proyect/Proyect/Plantillas/despedida.html")
+
+    plt = Template(doc_externo.read())
+
+    doc_externo.close()
+
+    context = Context()
+
+    documento = plt.render(context)
+
+    return HttpResponse(documento)
 
     
 def fechactual(response):
