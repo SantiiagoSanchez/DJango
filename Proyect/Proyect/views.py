@@ -14,6 +14,8 @@ def saludo(request):
 
     persona1 = Persona("Nicolas", "Sanchez")
 
+    temas = ["Plantillas", "Modelos", "Formularios", "Vistas", "Despliegue"]
+
     #nombre = "Santiago"
 
     #apellido = "Sanchez"
@@ -26,7 +28,7 @@ def saludo(request):
 
     doc_externo.close()
 
-    context = Context({"Nombre": persona1.nombre, "Apellido": persona1.apellido, "Actual": ahora})
+    context = Context({"Nombre": persona1.nombre, "Apellido": persona1.apellido, "Actual": ahora, "Temas": temas})
 
     documento = plt.render(context)
 

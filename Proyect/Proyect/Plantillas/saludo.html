@@ -14,5 +14,30 @@
     <h1 class="color-48e">Hola mundo DJango. Con plantilla ahora</h1>
     <p>El nombre tuyo es {{Nombre}} {{Apellido}}</p>
     <p>Estamos viendo esto a dia: {{Actual.day}} / {{Actual.month}} / {{Actual.year}} </p>
+
+    <p><strong>Temas del curso:</strong></p>
+    <!--<p>{{Temas.0}}</p>
+    <p>{{Temas.1}}</p>
+    <p>{{Temas.2}}</p>
+    <p>{{Temas.3}}</p>
+    <p>{{Temas.4}}</p>-->
+    <p>
+        <ul>
+            {% if Temas %}
+                {% for tema in Temas %}
+
+                <li>{{tema}}</li>
+
+                {% endfor %}
+            {% else %}
+                <p>No hay temas de estudio cargados</p>
+            {% endif %}
+        </ul>
+    </p>
+    <p>
+        {% for tema in Temas %}
+            {{tema}}
+        {% endfor %}
+    </p>
 </body>
 </html>
