@@ -1,6 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 import datetime
-from django.template import Template, Context
+from django.template import Template, Context, loader
+
 
 class Persona(object):
     
@@ -12,39 +13,39 @@ class Persona(object):
 def saludo(request):
     
 
-    persona1 = Persona("Nicolas", "Sanchez")
+    persona1 = Persona("Santiago", "Sanchez")
+
+    nombre_completo = persona1.nombre + " " + persona1.apellido
 
     temas = ["Plantillas", "Modelos", "Formularios", "Vistas", "Despliegue"]
 
-    #nombre = "Santiago"
-
-    #apellido = "Sanchez"
-
     ahora = datetime.datetime.now()
 
-    doc_externo = open("C:/Users/Sanch/OneDrive/Escritorio/DJango/Proyect/Proyect/Plantillas/saludo.html")
+    #doc_externo = open("C:/Users/Sanch/OneDrive/Escritorio/DJango/Proyect/Proyect/Plantillas/saludo.html")
 
-    plt = Template(doc_externo.read())
+    #plt = Template(doc_externo.read())
 
-    doc_externo.close()
+    #doc_externo.close()
 
-    context = Context({"Nombre": persona1.nombre, "Apellido": persona1.apellido, "Actual": ahora, "Temas": temas})
+    doc_externo = loader.get_template('saludo.html')
 
-    documento = plt.render(context)
+    #context = Context({"Nombre": persona1.nombre, "Apellido": persona1.apellido, "Actual": ahora, "Temas": temas, "NombreCompleto": nombre_completo})
+
+    documento = doc_externo.render({"Nombre": persona1.nombre, "Apellido": persona1.apellido, "Actual": ahora, "Temas": temas, "NombreCompleto": nombre_completo})
 
     return HttpResponse(documento)
 
 def despedida(request):
 
-    doc_externo = open("C:/Users/Sanch/OneDrive/Escritorio/DJango/Proyect/Proyect/Plantillas/despedida.html")
+    doc_externo = loader.get_template('despedida.html')
 
-    plt = Template(doc_externo.read())
+    #plt = Template(doc_externo.read())
 
-    doc_externo.close()
+    #doc_externo.close()
 
-    context = Context()
+    #context = Context()
 
-    documento = plt.render(context)
+    documento = doc_externo.render()
 
     return HttpResponse(documento)
 

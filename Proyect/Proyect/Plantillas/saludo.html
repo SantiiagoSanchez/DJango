@@ -12,7 +12,24 @@
 </head>
 <body>
     <h1 class="color-48e">Hola mundo DJango. Con plantilla ahora</h1>
-    <p>El nombre tuyo es {{Nombre}} {{Apellido}}</p>
+
+    {# Esto es un comentario de una linea #}
+    {% comment %}
+        Esto es un comentario de
+        varias lineas.
+        aaa
+        aaa
+        aa
+
+    {% endcomment %}
+
+    {% if NombreCompleto == 'Santiago Sanchez' %}
+        <p>El profesor es el titular</p>
+    {% else %}
+        <p>El profesor es el suplente</p>
+    {% endif %}
+
+    <p>El profesor es: {{Nombre.upper}} {{Apellido.upper}}</p>
     <p>Estamos viendo esto a dia: {{Actual.day}} / {{Actual.month}} / {{Actual.year}} </p>
 
     <p><strong>Temas del curso:</strong></p>
