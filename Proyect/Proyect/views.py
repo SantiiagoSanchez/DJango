@@ -36,6 +36,14 @@ def saludo(request):
 
     return render(request, "saludo.html", {"Nombre": persona1.nombre, "Apellido": persona1.apellido, "Actual": ahora, "Temas": temas, "NombreCompleto": nombre_completo})
 
+def cursoc(request):
+    ahora = datetime.datetime.now()
+
+    return render(request, "cursoc.html", {"Actual": ahora})
+
+def cursocss(request):
+    return render(request, "cursocss.html")
+
 def despedida(request):
 
     doc_externo = loader.get_template('despedida.html')

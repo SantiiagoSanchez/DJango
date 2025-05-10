@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>
+
+            {% block title %} {% endblock %}
+
+        </title>
+    </head>
+    <body>
+        {% include "navbar.html" %}
+        <h1 style="background-color: #48e; color: #fff; text-align: center;">CURSO DE PROGRAMACION</h1>
+        <h3>Santiago Sanchez</h3>
+        {% block content %}
+
+        {% endblock %}
+        <p style="background-color: #48e; color: #fff; text-align: center;">Copyrigth. Todos los derechos reservados a Lionel Andres Messi</p>
+    </body>
+</html>
