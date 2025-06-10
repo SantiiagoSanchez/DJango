@@ -11,6 +11,9 @@ class Articulos(models.Model):
     Categoria = models.CharField(max_length=30)
     Precio = models.IntegerField() #Campo de tipo entero
 
+    def __str__(self):
+        return "Nombre: %s - Categoria: %s - Precio: $%s" % (self.Nombre, self.Categoria, self.Precio)
+
 class Pedidos(models.Model):
     Numero = models.IntegerField()
     Fecha = models.DateField() #Campo para fechas como un datetime.
