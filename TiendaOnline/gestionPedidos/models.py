@@ -3,7 +3,7 @@ from django.db import models
 class Clientes(models.Model):
     Nombre = models.CharField(max_length=30) #CharField es para decir que es texto lo que se va a guardar
     Direccion = models.CharField(max_length=50)
-    Email = models.EmailField()
+    Email = models.EmailField(blank=True, null=True) #Esto es para decirle que no es requerido, que puede ser null
     Telefono = models.CharField(max_length=10)
 
 class Articulos(models.Model):
