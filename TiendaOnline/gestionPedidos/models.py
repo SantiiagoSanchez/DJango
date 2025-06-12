@@ -8,6 +8,8 @@ class Clientes(models.Model):
 
     def __str__(self):
         return self.Nombre
+    
+    
 class Articulos(models.Model):
     Nombre = models.CharField(max_length=30)
     Categoria = models.CharField(max_length=30)
