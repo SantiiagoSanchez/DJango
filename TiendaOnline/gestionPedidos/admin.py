@@ -12,7 +12,7 @@ class ArticulosAdmin(admin.ModelAdmin):
 class PedidosAdmin(admin.ModelAdmin):
     list_display=("Numero", "Fecha")
     list_filter=("Fecha",)
-    date_hierarchy="Fecha"
+    date_hierarchy="Fecha" #Otro tipo de filtro.
 
 admin.site.register(Clientes, ClientesAdmin)
 admin.site.register(Articulos, ArticulosAdmin)
