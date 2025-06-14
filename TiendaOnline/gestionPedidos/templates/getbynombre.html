@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Nombre</title>
+</head>
+<body>
+    <p>Estas buscando: <strong>{{Query}}</strong></p> <!--Query es el string que pones en el input para buscar-->
+
+    {% if Articulos %}
+        <p>Articulos encontrados: {{Articulos|length}}</p>
+
+        <ul>
+                {% for productos in Articulos %}
+
+                <li>
+
+                    <p>{{productos.Nombre}} - {{productos.Categoria}} - ${{productos.Precio}}</p>
+
+                </li>
+
+                {% endfor %}
+        </ul>
+
+    {% else %}
+
+    <p>No se encontro el producto</p>
+
+    {% endif %}
+</body>
+</html>
