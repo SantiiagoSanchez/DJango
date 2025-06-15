@@ -15,13 +15,27 @@ def getproduct(request):
 
         producto = request.GET["product"]
 
-        articulo=Articulos.objects.filter(Nombre__icontains=producto) #Esto filtra por Nombre, campo que esta en la tabla Articulos
-                                                                      #"[CAMPO DE LA TABLA]__icontains"
+        if len(producto) > 20:
 
-        return render(request, "getbynombre.html", {"Articulos": articulo, "Query": producto})
+            mensaje = 'ERROR: El texto es demasiado largo'
+
+            return HttpResponse(mensaje)
+        
+        else:
+            articulo=Articulos.objects.filter(Nombre__icontains=producto) #Esto filtra por Nombre, campo que esta en la tabla Articulos
+                                                                          #"[CAMPO DE LA TABLA]__icontains"
+
+            return render(request, "getbynombre.html", {"Articulos": articulo, "Query": producto})
     
     else:
         
         mensaje = 'ERROR: Ingresa un producto valido'
 
         return HttpResponse(mensaje)
+    
+def contacto(request):
+
+    if request.method=="POST":
+        return render(request, "gracias.html")
+    
+    return render(request, "contacto.html")

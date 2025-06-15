@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+</head>
+<body>
+    <h1>Formulario de contacto</h1>
+    <form action="/contacto/" method="POST">{% csrf_token %} <!--El token CSRF mejora la seguridad porque permite validar que las solicitudes son generadas desde el sitio web autorizado-->
+        <p>Asunto: <input type="text" name="asunto"></p>
+
+        <p>Correo: <input type="email" name="email"></p>
+
+        <p>Mensaje: <textarea name="mensaje" rows="15" cols="40"></textarea></p>
+
+        <input type="submit" name="enviar">
+    </form>
+</body>
+</html>
